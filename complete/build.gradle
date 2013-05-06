@@ -1,0 +1,36 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+apply plugin: 'application'
+mainClassName = "validatingforminput.Application"
+
+repositories { 
+	mavenCentral()
+}
+
+ext.springVersion = "3.2.2.RELEASE"
+
+dependencies {
+	compile "org.springframework:spring-webmvc:3.2.2.RELEASE"
+	compile 'javax.validation:validation-api:1.0.0.GA'
+	compile "org.apache.tomcat:tomcat-catalina:7.0.39"
+	compile "org.apache.tomcat.embed:tomcat-embed-core:7.0.39"
+	compile "org.apache.tomcat:tomcat-jasper:7.0.39"
+	compile 'org.hibernate:hibernate-validator:5.0.0.Final'
+	compile 'org.thymeleaf:thymeleaf-spring3:2.0.16'
+	compile "org.slf4j:slf4j-log4j12:1.7.5"
+}
+
+// Swap out default Spring Framework version with the latest release
+configurations.all {
+	resolutionStrategy.eachDependency { DependencyResolveDetails details ->
+		if (details.requested.name.startsWith("spring") && !details.requested.name.startsWith("spring-data")) {
+			details.useTarget group: details.requested.group, \
+				name: details.requested.name, version: springVersion
+		}
+	}
+}
+
+task wrapper(type: Wrapper) {
+	gradleVersion = '1.5'
+}

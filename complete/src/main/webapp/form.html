@@ -1,0 +1,16 @@
+<html>
+	<body>
+		<form action="#" th:action="@{/}" th:object="${person}" method="post">
+			<table>
+				<tr>
+					<td>How old are you?</td>
+					<td><input type="text" th:field="*{age}" /></td>
+					<td><div id="errors" th:text="${error}" /></td>
+				</tr>
+				<tr>
+					<td><button type="submit">Submit</button></td>
+				</tr>
+			</table>
+		</form>
+	</body>
+</html>
