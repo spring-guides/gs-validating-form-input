@@ -9,7 +9,7 @@ To help you get started, we've provided an initial project structure as well as 
 $ git clone git@github.com:springframework-meta/gs-validating-form-input.git
 ```
 
-In the `start` folder, you'll find a bare project, ready for you to copy-n-paste code snippets from this document. In the `complete` folder, you'll find the complete project code.
+In the `initial` folder, you'll find a bare project, ready for you to copy-n-paste code snippets from this document. In the `complete` folder, you'll find the complete project code.
 
 Before we can write a form validator, let's setup the key parts of a web application. Or, you can skip straight to the [fun part](#defining-an-object-that-needs-validation).
 
