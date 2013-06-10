@@ -1,5 +1,7 @@
-package validatingforminput;
+package hello;
 
+import org.springframework.bootstrap.SpringApplication;
+import org.springframework.bootstrap.context.annotation.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -11,7 +13,8 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 @Configuration
 @EnableWebMvc
 @ComponentScan
-public class Config {
+@EnableAutoConfiguration
+public class Application {
 	
 	@Bean
 	ServletContextTemplateResolver templateResolver() {
@@ -34,5 +37,9 @@ public class Config {
 		viewResolver.setTemplateEngine(engine());
 		return viewResolver;
 	}
-
+	
+	public static void main(String[] args) throws Exception {
+		SpringApplication.run(Application.class, args);
+	}
+	
 }
