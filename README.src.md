@@ -76,7 +76,7 @@ Finally, we have a button to submit. In general, if the user enters an age that 
 
 Configuring the application
 ---------------------------
-For this application, you are using the templating language of [Thymeleaf[(http://www.thymeleaf.org/doc/html/Thymeleaf-Spring3.html). This application needs more than raw HTML.
+For this application, you are using the templating language of [Thymeleaf](http://www.thymeleaf.org/doc/html/Thymeleaf-Spring3.html). This application needs more than raw HTML.
 
     {!include:complete/src/main/java/hello/Application.java}
     
