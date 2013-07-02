@@ -9,8 +9,8 @@ This Getting Started guide walks you through the process of configuring your for
 What you'll need
 ----------------
 
-- About 15 minutes
-- {!include#prereq-editor-jdk-buildtools}
+ - About 15 minutes
+ - {!include#prereq-editor-jdk-buildtools}
 
 ## {!include#how-to-complete-this-guide}
 
@@ -117,3 +117,5 @@ Summary
 -------
 
 Congratulations! You have coded a simple web application with validation built into a domain object. This way you can ensure the data meets certain criteria and leverages the user to input it correctly.
+
+[zip]: https://github.com/springframework-meta/gs-validating-form-input/archive/master.zip

@@ -9,7 +9,7 @@ This Getting Started guide walks you through the process of configuring your for
 What you'll need
 ----------------
 
-- About 15 minutes
+ - About 15 minutes
  - A favorite text editor or IDE
  - [JDK 6][jdk] or later
  - [Maven 3.0][mvn] or later
@@ -124,7 +124,8 @@ In a project directory of your choosing, create the following subdirectory struc
 
 TODO: mention that we're using Spring Bootstrap's [_starter POMs_](../gs-bootstrap-starter) here.
 
-Note to experienced Maven users who are unaccustomed to using an external parent project: you can take it out later, it's just there to reduce the amount of code you have to write to get started.
+> Note to experienced Maven users who don't use an external parent project: You can take out the project later, it's just there to reduce the amount of code you have to write to get started.
+
 
 <a name="initial"></a>
 Creating a Person object
@@ -372,3 +373,5 @@ Summary
 -------
 
 Congratulations! You have coded a simple web application with validation built into a domain object. This way you can ensure the data meets certain criteria and leverages the user to input it correctly.
+
+[zip]: https://github.com/springframework-meta/gs-validating-form-input/archive/master.zip
