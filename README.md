@@ -1,10 +1,13 @@
+
 Getting Started: Validating Form Input
 ======================================
+
 
 What you'll build
 -----------------
 
 This Getting Started guide walks you through the process of configuring your form to support validation. On top of that, you'll see how to display the error message on the screen so the user can re-enter a valid input.
+
 
 What you'll need
 ----------------
@@ -17,6 +20,7 @@ What you'll need
 [jdk]: http://www.oracle.com/technetwork/java/javase/downloads/index.html
 [mvn]: http://maven.apache.org/download.cgi
 
+
 How to complete this guide
 --------------------------
 
@@ -27,11 +31,13 @@ To **start from scratch**, move on to [Set up the project](#scratch).
 To **skip the basics**, do the following:
 
  - [Download][zip] and unzip the source repository for this guide, or clone it using [git](/understanding/git):
-`git clone https://github.com/springframework-meta/{@project-name}.git`
- - cd into `{@project-name}/initial`
- - Jump ahead to [Create a resource representation class](#initial).
+`git clone https://github.com/springframework-meta/gs-validating-form-input.git`
+ - cd into `gs-validating-form-input/initial`
+ - Jump ahead to [Creating a Person object](#initial).
 
-**When you're finished**, you can check your results against the code in `{@project-name}/complete`.
+**When you're finished**, you can check your results against the code in `gs-validating-form-input/complete`.
+[zip]: https://github.com/springframework-meta/gs-validating-form-input/archive/master.zip
+
 
 <a name="scratch"></a>
 Set up the project
@@ -124,7 +130,7 @@ In a project directory of your choosing, create the following subdirectory struc
 
 TODO: mention that we're using Spring Bootstrap's [_starter POMs_](../gs-bootstrap-starter) here.
 
-> Note to experienced Maven users who don't use an external parent project: You can take out the project later, it's just there to reduce the amount of code you have to write to get started.
+Note to experienced Maven users who are unaccustomed to using an external parent project: you can take it out later, it's just there to reduce the amount of code you have to write to get started.
 
 
 <a name="initial"></a>
@@ -163,6 +169,7 @@ The `Person` class only has one attribute, `age`. It is flagged with standard va
 - `@Min(18)` won't allow if the age is less than 18
 
 In addition to that, you can also see getters/setters for `age` as well as a convenient `toString()` method.
+
 
 Creating a web controller
 -------------------------
@@ -212,6 +219,7 @@ The `enterAge` method accepts three arguments:
 
 That way, we can retrieve all the attributes from the form bound to the `Person` object. In the code, we test if there were any errors, and if so, add a flash attribute named `error`, and redirect the user back to the `/` page. If there are no errors, then we return the `results` template.
 
+
 Building an HTML front end
 --------------------------
 First of all, we need to build the "main" page.
@@ -220,12 +228,12 @@ First of all, we need to build the "main" page.
 ```html
 <html>
 	<body>
-		<form action="#" th:action="@{/}" th:object="${person}" method="post">
+		<form action="#" th:action="@{/}" th:object="<#noparse>$</#noparse>{person}" method="post">
 			<table>
 				<tr>
 					<td>How old are you?</td>
 					<td><input type="text" th:field="*{age}" /></td>
-					<td><div id="errors" th:text="${error}" /></td>
+					<td><div id="errors" th:text="<#noparse>$</#noparse>{error}" /></td>
 				</tr>
 				<tr>
 					<td><button type="submit">Submit</button></td>
@@ -252,6 +260,7 @@ Finally, we have a button to submit. In general, if the user enters an age that 
 ```
     
 > **Note:** These web pages don't have any sophisticated CSS JavaScript, because we are trying to keep things simple. But for any professional web sites, it's very valuable to learn how to style your web pages.
+
 
 Configuring the application
 ---------------------------
@@ -342,12 +351,15 @@ Now run the following to produce a single executable JAR file containing all nec
 
 [maven-shade-plugin]: https://maven.apache.org/plugins/maven-shade-plugin
 
+
 Run the web application
 -----------------------
 
 Run your service with `java -jar` at the command line:
 
-    java -jar target/gs-validating-form-input-complete-0.1.0.jar
+```sh
+java -jar target/gs-validating-form-input-complete-0.1.0.jar
+```
 
 The application should be up and running within a few seconds.
 
@@ -369,9 +381,8 @@ Finally, if you enter a valid age, then you end up on the `results` page!
 
 ![](images/valid-05.png)
 
+
 Summary
 -------
 
 Congratulations! You have coded a simple web application with validation built into a domain object. This way you can ensure the data meets certain criteria and leverages the user to input it correctly.
-
-[zip]: https://github.com/springframework-meta/gs-validating-form-input/archive/master.zip
