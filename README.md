@@ -228,12 +228,12 @@ First of all, we need to build the "main" page.
 ```html
 <html>
 	<body>
-		<form action="#" th:action="@{/}" th:object="<#noparse>$</#noparse>{person}" method="post">
+		<form action="#" th:action="@{/}" th:object="${person}" method="post">
 			<table>
 				<tr>
 					<td>How old are you?</td>
 					<td><input type="text" th:field="*{age}" /></td>
-					<td><div id="errors" th:text="<#noparse>$</#noparse>{error}" /></td>
+					<td><div id="errors" th:text="${error}" /></td>
 				</tr>
 				<tr>
 					<td><button type="submit">Submit</button></td>
