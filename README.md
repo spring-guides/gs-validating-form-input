@@ -43,7 +43,7 @@ To **skip the basics**, do the following:
 Set up the project
 ------------------
 
-First you set up a basic build script. You can use any build system you like when building apps with Spring, but the code you need to work with [Maven](https://maven.apache.org) and [Gradle](http://gradle.org) is included here. If you're not familiar with either, refer to [Getting Started with Maven](../gs-maven/README.md) or [Getting Started with Gradle](../gs-gradle/README.md).
+First you set up a basic build script. You can use any build system you like when building apps with Spring, but the code you need to work with [Maven](https://maven.apache.org) and [Gradle](http://gradle.org) is included here. If you're not familiar with either, refer to [Building Java Projects with Maven](../gs-maven/README.md) or [Building Java Projects with Gradle](../gs-gradle/README.md).
 
 ### Create the directory structure
 
@@ -228,12 +228,12 @@ First of all, we need to build the "main" page.
 ```html
 <html>
 	<body>
-		<form action="#" th:action="@{/}" th:object="${person}" method="post">
+		<form action="#" th:action="@{/}" th:object="<#noparse>$</#noparse>{person}" method="post">
 			<table>
 				<tr>
 					<td>How old are you?</td>
 					<td><input type="text" th:field="*{age}" /></td>
-					<td><div id="errors" th:text="${error}" /></td>
+					<td><div id="errors" th:text="<#noparse>$</#noparse>{error}" /></td>
 				</tr>
 				<tr>
 					<td><button type="submit">Submit</button></td>
@@ -319,7 +319,7 @@ To activate Spring MVC, you need `@EnableWebMvc` added to the class. It also has
 
 The extra beans shown in this configuration are used to wire up Thymeleaf and integrate it with Spring MVC. The first one takes view names, appends `.html`, and looks for that file in `src/main/webapp/`.  The rest are used to perform proper resolution and rendering.
 
-### Build an executable JAR
+###Build an executable JAR
 
 Now that your `Application` class is ready, you simply instruct the build system to create a single, executable jar containing everything. This makes it easy to ship, version, and deploy the service as an application throughout the development lifecycle, across different environments, and so forth.
 
