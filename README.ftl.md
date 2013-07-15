@@ -97,14 +97,7 @@ The extra beans shown in this configuration are used to wire up Thymeleaf and in
 ### <@build_an_executable_jar/>
 
 
-Run the web application
------------------------
-
-Run your service with `java -jar` at the command line:
-
-```sh
-java -jar target/${project_id}-complete-0.1.0.jar
-```
+<@run_the_application module="web application"/>
 
 The application should be up and running within a few seconds.
 

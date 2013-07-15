@@ -353,13 +353,12 @@ Now run the following to produce a single executable JAR file containing all nec
 
 
 Run the web application
------------------------
+-------------------
+Run your web application with `java -jar` at the command line:
 
-Run your service with `java -jar` at the command line:
+    java -jar target/gs-validating-form-input-0.1.0.jar
 
-```sh
-java -jar target/gs-validating-form-input-complete-0.1.0.jar
-```
+
 
 The application should be up and running within a few seconds.
 
