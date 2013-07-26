@@ -1,9 +1,5 @@
 <#assign project_id="gs-validating-form-input">
 
-Getting Started: Validating Form Input
-======================================
-
-
 What you'll build
 -----------------
 

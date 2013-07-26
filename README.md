@@ -1,8 +1,4 @@
 
-Getting Started: Validating Form Input
-======================================
-
-
 What you'll build
 -----------------
 
