@@ -93,7 +93,7 @@ The extra beans shown in this configuration are used to wire up Thymeleaf and in
 ### <@build_an_executable_jar/>
 
 
-<@run_the_application module="web application"/>
+<@run_the_application_with_maven module="web application"/>
 
 The application should be up and running within a few seconds.
 
