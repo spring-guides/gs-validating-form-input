@@ -7,8 +7,8 @@ There's more to Spring web development than what is presented here. You may want
 * [Uploading a File][gs-uploading-files]
 * [Securing a Web Application][gs-securing-web]
 
-[gs-uploading-files]: /guides/gs/uploading-files/content
-[gs-securing-web]: /guides/gs/securing-web/content
+[gs-uploading-files]: /guides/gs/uploading-files/
+[gs-securing-web]: /guides/gs/securing-web/
 
 ### Tutorials
 
