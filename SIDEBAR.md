@@ -4,22 +4,28 @@ There's more to Spring web development than what is presented here. You may want
 
 ### Getting Started Guides
 
+* [Handling Form Submission][gs-handling-form-submission]
+* [Serving Web Content][gs-serving-web-content]
 * [Uploading a File][gs-uploading-files]
-* [Securing a Web Application][gs-securing-web]
+* [Building a RESTful Web Service][gs-rest-service]
 
-[gs-uploading-files]: /guides/gs/uploading-files/
-[gs-securing-web]: /guides/gs/securing-web/
+[gs-handling-form-submission]: /guides/gs/handling-form-submission/content
+[gs-serving-web-content]: /guides/gs/serving-web-content/content
+[gs-uploading-files]: /guides/gs/uploading-files/content
+[gs-rest-service]: /guides/gs/rest-service/content
 
 ### Tutorials
 
-* [Tutorial TBD][tut-tbd]
+* [REST Tutorial][tut-rest]
 
-[tut-tbd]: /guides/tutorials/tbd
+[tut-rest]: /guides/tutorials/rest
 
-### Understanding
+### Concepts and Technologies
 
+* [View Templates][u-view-templates]
 * [REST][u-rest]
 * [JSON][u-json]
 
+[u-view-templates]: /understanding/view-templates
 [u-rest]: /understanding/rest
 [u-json]: /understanding/json
