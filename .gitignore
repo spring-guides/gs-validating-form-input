@@ -27,4 +27,4 @@ build/
 
 *-uploaded
 
-accessingdataneo4j.db
+dependency-reduced-pom.xml

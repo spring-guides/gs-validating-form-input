@@ -1,9 +1,10 @@
 <#assign project_id="gs-validating-form-input">
+This Getting Started guide walks you through the process of configuring a web application form to support validation.
 
 What you'll build
 -----------------
 
-This Getting Started guide walks you through the process of configuring your form to support validation. On top of that, you'll see how to display the error message on the screen so the user can re-enter a valid input.
+You'll build a simple Spring MVC application that take user input and checks the input using standard validation annotations. On top of that, you'll see how to display the error message on the screen so the user can re-enter a valid input.
 
 
 What you'll need
