@@ -27,5 +27,5 @@ There's more to Spring web development than what is presented here. You may want
 * [JSON][u-json]
 
 [u-view-templates]: /understanding/view-templates
-[u-rest]: /understanding/rest
-[u-json]: /understanding/json
+[u-rest]: /understanding/REST
+[u-json]: /understanding/JSON
