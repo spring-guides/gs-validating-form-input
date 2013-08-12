@@ -76,12 +76,12 @@ In a project directory of your choosing, create the following subdirectory struc
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-        	<groupId>org.hibernate</groupId>
-        	<artifactId>hibernate-validator</artifactId>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
         </dependency>
         <dependency>
-        	<groupId>org.thymeleaf</groupId>
-        	<artifactId>thymeleaf-spring3</artifactId>
+            <groupId>org.thymeleaf</groupId>
+            <artifactId>thymeleaf-spring3</artifactId>
         </dependency>
     </dependencies>
 
@@ -151,21 +151,21 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 public class Person {
-	@NotNull
-	@Min(18)
-	private Integer age;
+    @NotNull
+    @Min(18)
+    private Integer age;
 
-	public String toString() {
-		return "Person(" + age + ")";
-	}
-	
-	public Integer getAge() {
-		return age;
-	}
+    public String toString() {
+        return "Person(" + age + ")";
+    }
+    
+    public Integer getAge() {
+        return age;
+    }
 
-	public void setAge(Integer age) {
-		this.age = age;
-	}
+    public void setAge(Integer age) {
+        this.age = age;
+    }
 }
 ```
     
@@ -195,20 +195,20 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class WebController {
 
-	@RequestMapping(value="/", method=RequestMethod.GET)
-	public String showForm(Person person) {
-		return "form";
-	}
-	
-	@RequestMapping(value="/", method=RequestMethod.POST)
-	public String enterAge(@Valid Person person, BindingResult bindingResult, 
-			RedirectAttributes redirectAttributes) {
-		if (bindingResult.hasErrors()) {
-			redirectAttributes.addFlashAttribute("error", bindingResult.getFieldError().getDefaultMessage());
-			return "redirect:/";
-		}
-		return "results";
-	}
+    @RequestMapping(value="/", method=RequestMethod.GET)
+    public String showForm(Person person) {
+        return "form";
+    }
+    
+    @RequestMapping(value="/", method=RequestMethod.POST)
+    public String enterAge(@Valid Person person, BindingResult bindingResult, 
+            RedirectAttributes redirectAttributes) {
+        if (bindingResult.hasErrors()) {
+            redirectAttributes.addFlashAttribute("error", bindingResult.getFieldError().getDefaultMessage());
+            return "redirect:/";
+        }
+        return "results";
+    }
 
 }
 ```
@@ -290,33 +290,33 @@ import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 @ComponentScan
 @EnableAutoConfiguration
 public class Application {
-	
-	@Bean
-	ServletContextTemplateResolver templateResolver() {
-		ServletContextTemplateResolver resolver = new ServletContextTemplateResolver();
-		resolver.setSuffix(".html");
-		resolver.setTemplateMode("HTML5");
-		return resolver;
-	}
-	
-	@Bean
-	SpringTemplateEngine engine() {
-		SpringTemplateEngine engine = new SpringTemplateEngine();
-		engine.setTemplateResolver(templateResolver());
-		return engine;
-	}
-	
-	@Bean
-	ThymeleafViewResolver viewResolver() {
-		ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
-		viewResolver.setTemplateEngine(engine());
-		return viewResolver;
-	}
-	
-	public static void main(String[] args) throws Exception {
-		SpringApplication.run(Application.class, args);
-	}
-	
+    
+    @Bean
+    ServletContextTemplateResolver templateResolver() {
+        ServletContextTemplateResolver resolver = new ServletContextTemplateResolver();
+        resolver.setSuffix(".html");
+        resolver.setTemplateMode("HTML5");
+        return resolver;
+    }
+    
+    @Bean
+    SpringTemplateEngine engine() {
+        SpringTemplateEngine engine = new SpringTemplateEngine();
+        engine.setTemplateResolver(templateResolver());
+        return engine;
+    }
+    
+    @Bean
+    ThymeleafViewResolver viewResolver() {
+        ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
+        viewResolver.setTemplateEngine(engine());
+        return viewResolver;
+    }
+    
+    public static void main(String[] args) throws Exception {
+        SpringApplication.run(Application.class, args);
+    }
+    
 }
 ```
     
@@ -354,7 +354,7 @@ Now run the following command to produce a single executable JAR file containing
 $ mvn package
 ```
 
-[spring-boot-maven-plugin]: https://github.com/SpringSource/spring-boot/tree/master/spring-boot-maven-plugin
+[spring-boot-maven-plugin]: https://github.com/SpringSource/spring-boot/tree/master/spring-boot-tools/spring-boot-maven-plugin
 
 > **Note:** The procedure above will create a runnable JAR. You can also opt to [build a classic WAR file](/guides/gs/convert-jar-to-war/) instead.
 
