@@ -9,10 +9,10 @@ There's more to Spring web development than what is presented here. You may want
 * [Uploading a File][gs-uploading-files]
 * [Building a RESTful Web Service][gs-rest-service]
 
-[gs-handling-form-submission]: /guides/gs/handling-form-submission/content
-[gs-serving-web-content]: /guides/gs/serving-web-content/content
-[gs-uploading-files]: /guides/gs/uploading-files/content
-[gs-rest-service]: /guides/gs/rest-service/content
+[gs-handling-form-submission]: /guides/gs/handling-form-submission/
+[gs-serving-web-content]: /guides/gs/serving-web-content/
+[gs-uploading-files]: /guides/gs/uploading-files/
+[gs-rest-service]: /guides/gs/rest-service/
 
 ### Tutorials
 
