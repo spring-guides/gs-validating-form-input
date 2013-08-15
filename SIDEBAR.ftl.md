@@ -2,7 +2,7 @@
 
 There's more to Spring web development than what is presented here. You may want to continue your exploration of Spring MVC with the following
 
-### Getting Started Guides
+### Getting Started guides
 
 * [Handling Form Submission][gs-handling-form-submission]
 * [Serving Web Content][gs-serving-web-content]
