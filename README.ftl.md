@@ -25,9 +25,9 @@ Set up the project
 
 <@create_directory_structure_hello/>
 
-### Create a Maven POM
+### Create a Gradle build file
 
-    <@snippet path="pom.xml" prefix="initial"/>
+    <@snippet path="build.gradle" prefix="initial"/>
 
 <@bootstrap_starter_pom_disclaimer/>
 
@@ -91,10 +91,10 @@ To activate Spring MVC, you need `@EnableWebMvc` added to the class. It also has
 
 The extra beans shown in this configuration are used to wire up Thymeleaf and integrate it with Spring MVC. The first one takes view names, appends `.html`, and looks for that file in `src/main/webapp/`.  The rest are used to perform proper resolution and rendering.
 
-### <@build_an_executable_jar/>
+### <@build_an_executable_jar_with_gradle/>
 
 
-<@run_the_application_with_maven module="web application"/>
+<@run_the_application_with_gradle module="web application"/>
 
 The application should be up and running within a few seconds.
 
