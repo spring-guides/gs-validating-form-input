@@ -1,9 +1,9 @@
-This Getting Started guide walks you through the process of configuring a web application form to support validation.
+This guide walks you through the process of configuring a web application form to support validation.
 
 What you'll build
 -----------------
 
-You'll build a simple Spring MVC application that take user input and checks the input using standard validation annotations. On top of that, you'll see how to display the error message on the screen so the user can re-enter a valid input.
+You'll build a simple Spring MVC application that take user input and checks the input using standard validation annotations. You'll also see how to display the error message on the screen so the user can re-enter a valid input.
 
 
 What you'll need
@@ -31,7 +31,7 @@ To **skip the basics**, do the following:
  - [Download][zip] and unzip the source repository for this guide, or clone it using [Git][u-git]:
 `git clone https://github.com/springframework-meta/gs-validating-form-input.git`
  - cd into `gs-validating-form-input/initial`.
- - Jump ahead to [Creating a Person object](#initial).
+ - Jump ahead to [Create a Person object](#initial).
 
 **When you're finished**, you can check your results against the code in `gs-validating-form-input/complete`.
 [zip]: https://github.com/springframework-meta/gs-validating-form-input/archive/master.zip
@@ -94,9 +94,9 @@ This guide is using [Spring Boot's starter POMs](/guides/gs/spring-boot/).
 
 
 <a name="initial"></a>
-Creating a Person object
+Create a Person object
 ------------------------
-The application involves validating a user's age, so first we need to create a class to represent a person.
+The application involves validating a user's age, so first you need to create a class to represent a person.
 
 `src/main/java/hello/Person.java`
 ```java
@@ -131,9 +131,9 @@ The `Person` class only has one attribute, `age`. It is flagged with standard va
 In addition to that, you can also see getters/setters for `age` as well as a convenient `toString()` method.
 
 
-Creating a web controller
+Create a web controller
 -------------------------
-Now that we have defined our entity, it's time to create a simple web controller.
+Now that you have defined an entity, it's time to create a simple web controller.
 
 `src/main/java/hello/WebController.java`
 ```java
@@ -170,19 +170,19 @@ public class WebController {
 
 This controller has a GET and a POST method, both mapped to `/`. 
 
-The `showForm` method returns the `form` template. It includes a `Person` in it's method signature so the template can associate form attributes with a `Person`.
+The `showForm` method returns the `form` template. It includes a `Person` in its method signature so the template can associate form attributes with a `Person`.
 
 The `enterAge` method accepts three arguments:
-- a `person` object marked up with `@Valid` to gather the attributes filled out in the form we're about to build
-- a `bindingResult` object so we can test for and retrieve validation errors 
-- a `redirectAttributes` object so we can create a flash-scoped error message to show the user what went wrong in the event of an error.
+- A `person` object marked up with `@Valid` to gather the attributes filled out in the form you're about to build.
+- A `bindingResult` object so you can test for and retrieve validation errors. 
+- A `redirectAttributes` object so you can create a flash-scoped error message to show the user what went wrong in the event of an error.
 
-That way, we can retrieve all the attributes from the form bound to the `Person` object. In the code, we test if there were any errors, and if so, add a flash attribute named `error`, and redirect the user back to the `/` page. If there are no errors, then we return the `results` template.
+You can retrieve all the attributes from the form bound to the `Person` object. In the code, you test for errors, and if so, add a flash attribute named `error`, and redirect the user back to the `/` page. If there are no errors, you return the `results` template.
 
 
-Building an HTML front end
+Build an HTML front end
 --------------------------
-First of all, we need to build the "main" page.
+Now you build the "main" page.
 
 `src/main/webapp/form.html`
 ```html
@@ -204,11 +204,11 @@ First of all, we need to build the "main" page.
 </html>
 ```
   
-It contains a simple form with each field in a separate slot of a table. The form is geared to post towards `/enterAge`. It is marked as being backed up by the `person` object that we saw in the GET method in the web controller. This is known as a **bean-backed form**. There is only one field in our `Person` bean, and we can see it tagged with `th:field="*{age}"`.
+The page contains a simple form with each field in a separate slot of a table. The form is geared to post towards `/enterAge`. It is marked as being backed up by the `person` object that you saw in the GET method in the web controller. This is known as a **bean-backed form**. There is only one field in the `Person` bean, and you can see it tagged with `th:field="*{age}"`.
 
-Right next to that entry field is a `<div>` with `th:text="${error}"`. This gives us a place to insert an error message.
+Right next to that entry field is a `<div>` with `th:text="${error}"`. This gives you a place to insert an error message.
 
-Finally, we have a button to submit. In general, if the user enters an age that violates the `@Valid` constraints, it will bounce back to this page with the error message on display. If a valid age is entered, then the user is routed to the next web page.
+Finally, you have a button to submit. In general, if the user enters an age that violates the `@Valid` constraints, it will bounce back to this page with the error message on display. If a valid age is entered, the user is routed to the next web page.
 
 `src/main/webapp/results.html`
 ```html
@@ -219,12 +219,12 @@ Finally, we have a button to submit. In general, if the user enters an age that 
 </html>
 ```
     
-> **Note:** These web pages don't have any sophisticated CSS JavaScript, because we are trying to keep things simple. But for any professional web sites, it's very valuable to learn how to style your web pages.
+> **Note:** In this simple example, these web pages don't have any sophisticated CSS JavaScript. But for any professional web sites, it's very valuable to learn how to style your web pages.
 
 
-Configuring the application
+Create an Application class
 ---------------------------
-For this application, you are using the templating language of [Thymeleaf](http://www.thymeleaf.org/doc/html/Thymeleaf-Spring3.html). This application needs more than raw HTML.
+For this application, you are using the template language of [Thymeleaf](http://www.thymeleaf.org/doc/html/Thymeleaf-Spring3.html). This application needs more than raw HTML.
 
 `src/main/java/hello/Application.java`
 ```java
@@ -275,9 +275,10 @@ public class Application {
 }
 ```
     
-To activate Spring MVC, you need `@EnableWebMvc` added to the class. It also has `@ComponentScan` to find the annotated `@Controller` class and its methods. To top it off, it uses `@EnableAutoConfiguration` to fire up Spring Boot.
+To activate Spring MVC, you add `@EnableWebMvc` to the `Application` class. The application also has `@ComponentScan` to find the annotated `@Controller` class and its methods, as well as `@EnableAutoConfiguration` to fire up Spring Boot.
 
 The extra beans shown in this configuration are used to wire up Thymeleaf and integrate it with Spring MVC. The first one takes view names, appends `.html`, and looks for that file in `src/main/webapp/`.  The rest are used to perform proper resolution and rendering.
+
 
 Now that your `Application` class is ready, you simply instruct the build system to create a single, executable jar containing everything. This makes it easy to ship, version, and deploy the service as an application throughout the development lifecycle, across different environments, and so forth.
 
@@ -342,11 +343,11 @@ What happens if you enter **15** and click on **Submit**?
 
 ![](images/valid-03.png)
 
-Here you can see that because it violated the constraints in the `Person` class, you get bounced back to the "main" page. If you click on submit with nothing in the entry box, you get a different error.
+Here you can see that because it violated the constraints in the `Person` class, you get bounced back to the "main" page. If you click on Submit with nothing in the entry box, you get a different error.
 
 ![](images/valid-04.png)
 
-Finally, if you enter a valid age, then you end up on the `results` page!
+If you enter a valid age, you end up on the `results` page!
 
 ![](images/valid-05.png)
 
@@ -354,4 +355,4 @@ Finally, if you enter a valid age, then you end up on the `results` page!
 Summary
 -------
 
-Congratulations! You have coded a simple web application with validation built into a domain object. This way you can ensure the data meets certain criteria and leverages the user to input it correctly.
+Congratulations! You have coded a simple web application with validation built into a domain object. This way you can ensure the data meets certain criteria and that the user inputs it correctly.
