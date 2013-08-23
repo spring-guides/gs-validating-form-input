@@ -90,6 +90,7 @@ To activate Spring MVC, you add `@EnableWebMvc` to the `Application` class. The 
 
 The extra beans shown in this configuration are used to wire up Thymeleaf and integrate it with Spring MVC. The first one takes view names, appends `.html`, and looks for that file in `src/main/webapp/`.  The rest are used to perform proper resolution and rendering.
 
+<@build_an_executable_jar_subhead/>
 
 <@build_an_executable_jar_with_both/>
 
