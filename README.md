@@ -325,7 +325,11 @@ If you are using Gradle, you can run the JAR by typing:
 $ java -jar build/libs/gs-validating-form-input-0.1.0.jar
 ```
 
-> **Note:** If you are using Maven, you can run the JAR by typing `java -jar target/gs-validating-form-input-0.1.0.jar`.
+If you are using Maven, you can run the JAR by typing:
+
+```sh
+$ java -jar target/gs-validating-form-input-0.1.0.jar
+```
 
 [spring-boot-gradle-plugin]: https://github.com/SpringSource/spring-boot/tree/master/spring-boot-tools/spring-boot-gradle-plugin
 
