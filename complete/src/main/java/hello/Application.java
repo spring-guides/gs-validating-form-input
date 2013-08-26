@@ -11,7 +11,6 @@ import org.thymeleaf.spring3.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 @Configuration
-@EnableWebMvc
 @ComponentScan
 @EnableAutoConfiguration
 public class Application {
