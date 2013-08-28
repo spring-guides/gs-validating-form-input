@@ -13,10 +13,12 @@ What you'll need
  - A favorite text editor or IDE
  - [JDK 6][jdk] or later
  - [Gradle 1.7+][gradle] or [Maven 3.0+][mvn]
+ - You can also import the code from this guide as well as view the web page directly into [Spring Tool Suite (STS)][gs-sts] and work your way through it from there.
 
 [jdk]: http://www.oracle.com/technetwork/java/javase/downloads/index.html
 [gradle]: http://www.gradle.org/
 [mvn]: http://maven.apache.org/download.cgi
+[gs-sts]: /guides/gs/sts
 
 
 How to complete this guide
@@ -55,7 +57,7 @@ In a project directory of your choosing, create the following subdirectory struc
 
 
 ### Create a Gradle build file
-Below is the [initial Gradle build file](https://github.com/spring-guides/gs-validating-form-input/blob/master/initial/build.gradle). But you can also use Maven. The pom.xml file is included [right here](https://github.com/spring-guides/gs-validating-form-input/blob/master/initial/pom.xml).
+Below is the [initial Gradle build file](https://github.com/spring-guides/gs-validating-form-input/blob/master/initial/build.gradle). But you can also use Maven. The pom.xml file is included [right here](https://github.com/spring-guides/gs-validating-form-input/blob/master/initial/pom.xml). If you are using [Spring Tool Suite (STS)][gs-sts], you can import the guide directly.
 
 `build.gradle`
 ```gradle
@@ -92,7 +94,7 @@ task wrapper(type: Wrapper) {
 }
 ```
     
-    
+[gs-sts]: /guides/gs/sts    
 
 This guide is using [Spring Boot's starter POMs](/guides/gs/spring-boot/).
 
@@ -239,7 +241,6 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.thymeleaf.spring3.SpringTemplateEngine;
 import org.thymeleaf.spring3.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
