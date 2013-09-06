@@ -19,6 +19,7 @@ There's more to Spring web development than what is presented here. You can cont
 * [REST Tutorial][tut-rest]
 
 [tut-rest]: /guides/tutorials/rest
+[tut-web]: /guides/tutorials/web
 
 ### Concepts and technologies
 
