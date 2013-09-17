@@ -86,7 +86,7 @@ For this application, you are using the template language of [Thymeleaf](http://
 
     <@snippet path="src/main/java/hello/Application.java" prefix="complete"/>
     
-To activate Spring MVC, you add `@EnableWebMvc` to the `Application` class. The application also has `@ComponentScan` to find the annotated `@Controller` class and its methods, as well as `@EnableAutoConfiguration` to fire up Spring Boot.
+To activate Spring MVC, you would normally add `@EnableWebMvc` to the `Application` class. But Spring Boot's `@EnableAutoConfiguration` already adds this annotation when it detects **spring-webmvc** on your classpath. The application also has `@ComponentScan` to find the annotated `@Controller` class and its methods.
 
 The extra beans shown in this configuration are used to wire up Thymeleaf and integrate it with Spring MVC. The first one takes view names, appends `.html`, and looks for that file in `src/main/webapp/`.  The rest are used to perform proper resolution and rendering.
 
