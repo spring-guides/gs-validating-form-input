@@ -67,7 +67,7 @@ Build an HTML front end
 --------------------------
 Now you build the "main" page.
 
-    <@snippet path="src/main/webapp/form.html" prefix="complete" parse=false/>
+    <@snippet path="src/main/webapp/form.html" prefix="complete"/>
   
 The page contains a simple form with each field in a separate slot of a table. The form is geared to post towards `/enterAge`. It is marked as being backed up by the `person` object that you saw in the GET method in the web controller. This is known as a **bean-backed form**. There is only one field in the `Person` bean, and you can see it tagged with <#noparse>`th:field="*{age}"`</#noparse>.
 
@@ -75,7 +75,7 @@ Right next to that entry field is a `<div>` with <#noparse>`th:text="${error}"`<
 
 Finally, you have a button to submit. In general, if the user enters an age that violates the `@Valid` constraints, it will bounce back to this page with the error message on display. If a valid age is entered, the user is routed to the next web page.
 
-    <@snippet path="src/main/webapp/results.html" prefix="complete" parse=false/>
+    <@snippet path="src/main/webapp/results.html" prefix="complete"/>
     
 > **Note:** In this simple example, these web pages don't have any sophisticated CSS JavaScript. But for any professional web sites, it's very valuable to learn how to style your web pages.
 
