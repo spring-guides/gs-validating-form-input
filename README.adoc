@@ -1,3 +1,4 @@
+:toc:
 :icons: font
 :source-highlighter: prettify
 :project_id: gs-validating-form-input
@@ -10,24 +11,30 @@ You'll build a simple Spring MVC application that take user input and checks the
 
 == What you'll need
 
-include::macros/prereq_editor_jdk_buildtools.asc[]
+include::https://raw.github.com/spring-guides/getting-started-macros/master/prereq_editor_jdk_buildtools.adoc[]
 
 
 :jump_ahead: Create a Person object
-include::macros/how_to_complete_this_guide.asc[]
+include::https://raw.github.com/spring-guides/getting-started-macros/master/how_to_complete_this_guide.adoc[]
 
 
 [[scratch]]
 == Set up the project
 
-include::macros/build_system_intro.asc[]
+include::https://raw.github.com/spring-guides/getting-started-macros/master/build_system_intro.adoc[]
 
-include::macros/create_directory_structure_hello.asc[]
+include::https://raw.github.com/spring-guides/getting-started-macros/master/create_directory_structure_hello.adoc[]
 
 
-include::macros/create_both_builds.asc[]
+include::https://raw.github.com/spring-guides/getting-started-macros/master/create_both_builds.adoc[]
+`build.gradle`
+// AsciiDoc source formatting doesn't support groovy, so using java instead
+[source,java]
+----
+include::../initial/build.gradle[]
+----
 
-include::macros/bootstrap_starter_pom_disclaimer.asc[]
+include::https://raw.github.com/spring-guides/getting-started-macros/master/bootstrap_starter_pom_disclaimer.adoc[]
 
 
 [[initial]]
@@ -41,6 +48,7 @@ include::complete/src/main/java/hello/Person.java[]
 ----
     
 The `Person` class only has one attribute, `age`. It is flagged with standard validation annotations:
+
 - `@NotNull` won't allow an empty value
 - `@Min(18)` won't allow if the age is less than 18
 
@@ -61,6 +69,7 @@ This controller has a GET and a POST method, both mapped to `/`.
 The `showForm` method returns the `form` template. It includes a `Person` in its method signature so the template can associate form attributes with a `Person`.
 
 The `enterAge` method accepts three arguments:
+
 - A `person` object marked up with `@Valid` to gather the attributes filled out in the form you're about to build.
 - A `bindingResult` object so you can test for and retrieve validation errors. 
 - A `redirectAttributes` object so you can create a flash-scoped error message to show the user what went wrong in the event of an error.
@@ -89,7 +98,7 @@ Finally, you have a button to submit. In general, if the user enters an age that
 include::complete/src/main/webapp/results.html[]
 ----
     
-NOTE: In this simple example, these web pages don't have any sophisticated CSS JavaScript. But for any professional web sites, it's very valuable to learn how to style your web pages.
+NOTE: In this simple example, these web pages don't have any sophisticated CSS or JavaScript. But for any production web site, it's valuable to learn how to style your web pages.
 
 
 == Create an Application class
@@ -105,13 +114,13 @@ To activate Spring MVC, you would normally add `@EnableWebMvc` to the `Applicati
 
 The extra beans shown in this configuration are used to wire up Thymeleaf and integrate it with Spring MVC. The first one takes view names, appends `.html`, and looks for that file in `src/main/webapp/`.  The rest are used to perform proper resolution and rendering.
 
-include::macros/build_an_executable_jar_subhead.asc[]
+include::https://raw.github.com/spring-guides/getting-started-macros/master/build_an_executable_jar_subhead.adoc[]
 
-include::macros/build_an_executable_jar_with_both.asc[]
+include::https://raw.github.com/spring-guides/getting-started-macros/master/build_an_executable_jar_with_both.adoc[]
 
 
 :module: web application
-include::macros/run_the_application_with_both.asc[]
+include::https://raw.github.com/spring-guides/getting-started-macros/master/run_the_application_with_both.adoc[]
 
 The application should be up and running within a few seconds.
 
