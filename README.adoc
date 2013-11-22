@@ -31,7 +31,7 @@ include::https://raw.github.com/spring-guides/getting-started-macros/master/crea
 // AsciiDoc source formatting doesn't support groovy, so using java instead
 [source,java]
 ----
-include::../initial/build.gradle[]
+include::initial/build.gradle[]
 ----
 
 include::https://raw.github.com/spring-guides/getting-started-macros/master/bootstrap_starter_pom_disclaimer.adoc[]
