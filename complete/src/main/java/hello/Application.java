@@ -1,12 +1,12 @@
 package hello;
 
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.thymeleaf.spring3.SpringTemplateEngine;
-import org.thymeleaf.spring3.view.ThymeleafViewResolver;
+import org.thymeleaf.spring4.SpringTemplateEngine;
+import org.thymeleaf.spring4.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
 
 @Configuration
@@ -23,14 +23,14 @@ public class Application {
     }
     
     @Bean
-    SpringTemplateEngine engine() {
+	SpringTemplateEngine engine() {
         SpringTemplateEngine engine = new SpringTemplateEngine();
         engine.setTemplateResolver(templateResolver());
         return engine;
     }
     
     @Bean
-    ThymeleafViewResolver viewResolver() {
+	ThymeleafViewResolver viewResolver() {
         ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
         viewResolver.setTemplateEngine(engine());
         return viewResolver;
