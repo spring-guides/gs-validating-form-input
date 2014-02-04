@@ -21,8 +21,9 @@ repositories {
 
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web:1.0.0.RC1")
-    compile("org.hibernate:hibernate-validator:4.3.1.Final")
+    compile("org.hibernate:hibernate-validator:5.0.2.Final")
     compile("org.thymeleaf:thymeleaf-spring4:2.1.2.RELEASE")
+    compile("org.apache.tomcat:tomcat-jasper:7.0.47")
     testCompile("junit:junit:4.11")
 }
 
