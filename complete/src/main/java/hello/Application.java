@@ -23,14 +23,14 @@ public class Application {
     }
     
     @Bean
-	SpringTemplateEngine engine() {
+    SpringTemplateEngine engine() {
         SpringTemplateEngine engine = new SpringTemplateEngine();
         engine.setTemplateResolver(templateResolver());
         return engine;
     }
     
     @Bean
-	ThymeleafViewResolver viewResolver() {
+    ThymeleafViewResolver viewResolver() {
         ThymeleafViewResolver viewResolver = new ThymeleafViewResolver();
         viewResolver.setTemplateEngine(engine());
         return viewResolver;

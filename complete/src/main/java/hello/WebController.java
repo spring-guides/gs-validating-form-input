@@ -15,15 +15,13 @@ public class WebController {
     public String showForm(Person person) {
         return "form";
     }
-    
+
     @RequestMapping(value="/", method=RequestMethod.POST)
-    public String enterAge(@Valid Person person, BindingResult bindingResult, 
-            RedirectAttributes redirectAttributes) {
+    public String enterAge(@Valid Person person, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            redirectAttributes.addFlashAttribute("error", bindingResult.getFieldError().getDefaultMessage());
-            return "redirect:/";
+            return "form";
         }
-        return "results";
+        return "redirect:/results.html";
     }
 
 }
