@@ -30,8 +30,8 @@ include::https://raw.github.com/spring-guides/getting-started-macros/master/crea
 
 
 include::https://raw.github.com/spring-guides/getting-started-macros/master/create_both_builds.adoc[]
+
 `build.gradle`
-// AsciiDoc source formatting doesn't support groovy, so using java instead
 [source,java]
 ----
 include::initial/build.gradle[]
@@ -42,7 +42,7 @@ include::https://raw.github.com/spring-guides/getting-started-macros/master/boot
 
 [[initial]]
 == Create a Person object
-The application involves validating a user's age, so first you need to create a class to represent a person.
+The application involves validating a user's name and age, so first you need to create a class to represent a person.
 
 `src/main/java/hello/Person.java`
 [source,java]
@@ -50,12 +50,13 @@ The application involves validating a user's age, so first you need to create a 
 include::complete/src/main/java/hello/Person.java[]
 ----
     
-The `Person` class only has one attribute, `age`. It is flagged with standard validation annotations:
+The `Person` class two attributes: `name` and `age`. It is flagged with several standard validation annotations:
 
+- `@Size(min=2, max=30)` will only allow names between 2 and 30 characters long
 - `@NotNull` won't allow an empty value
 - `@Min(18)` won't allow if the age is less than 18
 
-In addition to that, you can also see getters/setters for `age` as well as a convenient `toString()` method.
+In addition to that, you can also see getters/setters for `name` and `age` as well as a convenient `toString()` method.
 
 
 == Create a web controller
@@ -71,13 +72,14 @@ This controller has a GET and a POST method, both mapped to `/`.
 
 The `showForm` method returns the `form` template. It includes a `Person` in its method signature so the template can associate form attributes with a `Person`.
 
-The `enterAge` method accepts three arguments:
+The `checkPersonInfo` method accepts two arguments:
 
 - A `person` object marked up with `@Valid` to gather the attributes filled out in the form you're about to build.
 - A `bindingResult` object so you can test for and retrieve validation errors. 
-- A `redirectAttributes` object so you can create a flash-scoped error message to show the user what went wrong in the event of an error.
 
-You can retrieve all the attributes from the form bound to the `Person` object. In the code, you test for errors, and if so, add a flash attribute named `error`, and redirect the user back to the `/` page. If there are no errors, you return the `results` template.
+You can retrieve all the attributes from the form bound to the `Person` object. In the code, you test for errors, and if so, send the user back to the original `form` template. In that situation, all the error attributes are displayed.
+
+If all of the person's attribute are valid, then it redirects the browser to the final `results` template.
 
 
 == Build an HTML front end
@@ -89,11 +91,9 @@ Now you build the "main" page.
 include::complete/src/main/webapp/form.html[]
 ----
   
-The page contains a simple form with each field in a separate slot of a table. The form is geared to post towards `/enterAge`. It is marked as being backed up by the `person` object that you saw in the GET method in the web controller. This is known as a **bean-backed form**. There is only one field in the `Person` bean, and you can see it tagged with `th:field="*{age}"`.
+The page contains a simple form with each field in a separate slot of a table. The form is geared to post towards `/`. It is marked as being backed up by the `person` object that you saw in the GET method in the web controller. This is known as a **bean-backed form**. There are two fields in the `Person` bean, and you can see them tagged `th:field="*{name}"` and `th:field="*{age}"`. Next to each field is a secondary element used to show any validation errors.
 
-Right next to that entry field is a `<div>` with `th:text="${error}"`. This gives you a place to insert an error message.
-
-Finally, you have a button to submit. In general, if the user enters an age that violates the `@Valid` constraints, it will bounce back to this page with the error message on display. If a valid age is entered, the user is routed to the next web page.
+Finally, you have a button to submit. In general, if the user enters a name or age that violates the `@Valid` constraints, it will bounce back to this page with the error message on display. If a valid name and age is entered, the user is routed to the next web page.
 
 `src/main/webapp/results.html`
 [source,html]
@@ -131,7 +131,7 @@ If you visit http://localhost:8080/, you should see something like this:
 
 image::images/valid-01.png[]
 
-What happens if you enter **15** and click on **Submit**?
+What happens if you enter **A** for the name and **15** for your age and click on **Submit**?
 
 image::images/valid-02.png[]
 
@@ -141,7 +141,7 @@ Here you can see that because it violated the constraints in the `Person` class,
 
 image::images/valid-04.png[]
 
-If you enter a valid age, you end up on the `results` page!
+If you enter a valid name and age, you end up on the `results` page!
 
 image::images/valid-05.png[]
 

@@ -17,7 +17,7 @@ public class WebController {
     }
 
     @RequestMapping(value="/", method=RequestMethod.POST)
-    public String enterAge(@Valid Person person, BindingResult bindingResult) {
+    public String checkPersonInfo(@Valid Person person, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "form";
         }
