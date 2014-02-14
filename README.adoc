@@ -37,7 +37,7 @@ include::https://raw.github.com/spring-guides/getting-started-macros/master/crea
 include::initial/build.gradle[]
 ----
 
-include::https://raw.github.com/spring-guides/getting-started-macros/master/bootstrap_starter_pom_disclaimer.adoc[]
+NOTE: **tomcat-jasper** is an extra dependency required to provide JSR303 validation support. Don't forget it!
 
 
 [[initial]]
