@@ -4,7 +4,7 @@ buildscript {
         mavenLocal()
     }
     dependencies {
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.0.0.RC3")
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.0.0.RC4")
     }
 }
 
@@ -24,10 +24,9 @@ repositories {
 }
 
 dependencies {
-    compile("org.springframework.boot:spring-boot-starter-web")
-    compile("org.hibernate:hibernate-validator:5.0.2.Final")
-    compile("org.thymeleaf:thymeleaf-spring4")
-    compile("org.apache.tomcat:tomcat-jasper:7.0.47")
+    compile("org.springframework.boot:spring-boot-starter-thymeleaf")
+    compile("org.hibernate:hibernate-validator")
+    compile("org.apache.tomcat.embed:tomcat-embed-el")
     testCompile("junit:junit")
 }
 

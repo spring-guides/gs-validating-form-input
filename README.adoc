@@ -85,20 +85,20 @@ If all of the person's attribute are valid, then it redirects the browser to the
 == Build an HTML front end
 Now you build the "main" page.
 
-`src/main/webapp/form.html`
+`src/main/resources/templates/form.html`
 [source,html]
 ----
-include::complete/src/main/webapp/form.html[]
+include::complete/src/main/resources/templates/form.html[]
 ----
   
 The page contains a simple form with each field in a separate slot of a table. The form is geared to post towards `/`. It is marked as being backed up by the `person` object that you saw in the GET method in the web controller. This is known as a **bean-backed form**. There are two fields in the `Person` bean, and you can see them tagged `th:field="*{name}"` and `th:field="*{age}"`. Next to each field is a secondary element used to show any validation errors.
 
 Finally, you have a button to submit. In general, if the user enters a name or age that violates the `@Valid` constraints, it will bounce back to this page with the error message on display. If a valid name and age is entered, the user is routed to the next web page.
 
-`src/main/webapp/results.html`
+`src/main/resources/templates/results.html`
 [source,html]
 ----
-include::complete/src/main/webapp/results.html[]
+include::complete/src/main/resoures/templates/results.html[]
 ----
     
 NOTE: In this simple example, these web pages don't have any sophisticated CSS or JavaScript. But for any production web site, it's valuable to learn how to style your web pages.
@@ -115,7 +115,7 @@ include::complete/src/main/java/hello/Application.java[]
     
 To activate Spring MVC, you would normally add `@EnableWebMvc` to the `Application` class. But Spring Boot's `@EnableAutoConfiguration` already adds this annotation when it detects **spring-webmvc** on your classpath. The application also has `@ComponentScan` to find the annotated `@Controller` class and its methods.
 
-The extra beans shown in this configuration are used to wire up Thymeleaf and integrate it with Spring MVC. The first one takes view names, appends `.html`, and looks for that file in `src/main/webapp/`.  The rest are used to perform proper resolution and rendering.
+The Thymeleaf configuration is also taken care of by `@EnableAutoConfiguration`: by default templates are located in the classpath under `templates/` and are resolved as views by stripping the '.html' suffix off the file name. Thymeleaf settings can be changed and overridden in a variety of ways depending on what you need to achieve, but the details are not relevant to this guide.
 
 include::https://raw.github.com/spring-guides/getting-started-macros/master/build_an_executable_jar_subhead.adoc[]
 
