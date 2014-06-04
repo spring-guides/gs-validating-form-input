@@ -53,7 +53,7 @@ include::complete/src/main/java/hello/Person.java[]
 The `Person` class two attributes: `name` and `age`. It is flagged with several standard validation annotations:
 
 - `@Size(min=2, max=30)` will only allow names between 2 and 30 characters long
-- `@NotNull` won't allow an empty value
+- `@NotNull` won't allow a null value, which is what Spring MVC generates if the entry is empty
 - `@Min(18)` won't allow if the age is less than 18
 
 In addition to that, you can also see getters/setters for `name` and `age` as well as a convenient `toString()` method.
