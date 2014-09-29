@@ -109,9 +109,6 @@ include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/
 include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/build_an_executable_jar_with_both.adoc[]
 
 
-:module: web application
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/run_the_application_with_both.adoc[]
-
 The application should be up and running within a few seconds.
 
 If you visit http://localhost:8080/, you should see something like this:
