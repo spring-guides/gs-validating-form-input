@@ -85,7 +85,7 @@ Finally, you have a button to submit. In general, if the user enters a name or a
 `src/main/resources/templates/results.html`
 [source,html]
 ----
-include::complete/src/main/resoures/templates/results.html[]
+include::complete/src/main/resources/templates/results.html[]
 ----
     
 NOTE: In this simple example, these web pages don't have any sophisticated CSS or JavaScript. But for any production web site, it's valuable to learn how to style your web pages.
