@@ -100,9 +100,9 @@ For this application, you are using the template language of http://www.thymelea
 include::complete/src/main/java/hello/Application.java[]
 ----
     
-To activate Spring MVC, you would normally add `@EnableWebMvc` to the `Application` class. But Spring Boot's `@EnableAutoConfiguration` already adds this annotation when it detects **spring-webmvc** on your classpath. The application also has `@ComponentScan` to find the annotated `@Controller` class and its methods.
+To activate Spring MVC, you would normally add `@EnableWebMvc` to the `Application` class. But Spring Boot's `@SpringBootApplication` already adds this annotation when it detects **spring-webmvc** on your classpath. This same annotation allows it to find the annotated `@Controller` class and its methods.
 
-The Thymeleaf configuration is also taken care of by `@EnableAutoConfiguration`: by default templates are located in the classpath under `templates/` and are resolved as views by stripping the '.html' suffix off the file name. Thymeleaf settings can be changed and overridden in a variety of ways depending on what you need to achieve, but the details are not relevant to this guide.
+The Thymeleaf configuration is also taken care of by `@SpringBootApplication`: by default templates are located in the classpath under `templates/` and are resolved as views by stripping the '.html' suffix off the file name. Thymeleaf settings can be changed and overridden in a variety of ways depending on what you need to achieve, but the details are not relevant to this guide.
 
 include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/build_an_executable_jar_subhead.adoc[]
 
