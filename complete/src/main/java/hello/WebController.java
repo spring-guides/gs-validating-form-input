@@ -29,7 +29,7 @@ public class WebController extends WebMvcConfigurerAdapter {
         if (bindingResult.hasErrors()) {
             return "form";
         }
-        return "redirect:/results";
+        return "redirect:/results.html";
     }
 
 }
