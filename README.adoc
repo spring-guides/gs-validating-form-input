@@ -29,16 +29,16 @@ include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/
 include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/hide-show-sts.adoc[]
 
 [[initial]]
-== Create a Person object
-The application involves validating a user's name and age, so first you need to create a class to represent a person.
+== Create a PersonForm object
+The application involves validating a user's name and age, so first you need to create a class to back the form to create a person.
 
-`src/main/java/hello/Person.java`
+`src/main/java/hello/PersonForm.java`
 [source,java]
 ----
-include::complete/src/main/java/hello/Person.java[]
+include::complete/src/main/java/hello/PersonForm.java[]
 ----
-    
-The `Person` class two attributes: `name` and `age`. It is flagged with several standard validation annotations:
+
+The `PersonForm` class has two attributes: `name` and `age`. It is flagged with several standard validation annotations:
 
 - `@Size(min=2, max=30)` will only allow names between 2 and 30 characters long
 - `@NotNull` won't allow a null value, which is what Spring MVC generates if the entry is empty
@@ -48,7 +48,7 @@ In addition to that, you can also see getters/setters for `name` and `age` as we
 
 
 == Create a web controller
-Now that you have defined an entity, it's time to create a simple web controller.
+Now that you have defined a form backing object, it's time to create a simple web controller.
 
 `src/main/java/hello/WebController.java`
 [source,java]
@@ -56,16 +56,16 @@ Now that you have defined an entity, it's time to create a simple web controller
 include::complete/src/main/java/hello/WebController.java[]
 ----
 
-This controller has a GET and a POST method, both mapped to `/`. 
+This controller has a GET and a POST method, both mapped to `/`.
 
-The `showForm` method returns the `form` template. It includes a `Person` in its method signature so the template can associate form attributes with a `Person`.
+The `showForm` method returns the `form` template. It includes a `PersonForm` in its method signature so the template can associate form attributes with a `PersonForm`.
 
-The `checkPersonInfo` method accepts two arguments:
+The `checkPersonFormInfo` method accepts two arguments:
 
 - A `person` object marked up with `@Valid` to gather the attributes filled out in the form you're about to build.
-- A `bindingResult` object so you can test for and retrieve validation errors. 
+- A `bindingResult` object so you can test for and retrieve validation errors.
 
-You can retrieve all the attributes from the form bound to the `Person` object. In the code, you test for errors, and if so, send the user back to the original `form` template. In that situation, all the error attributes are displayed.
+You can retrieve all the attributes from the form bound to the `PersonForm` object. In the code, you test for errors, and if so, send the user back to the original `form` template. In that situation, all the error attributes are displayed.
 
 If all of the person's attribute are valid, then it redirects the browser to the final `results` template.
 
@@ -78,8 +78,8 @@ Now you build the "main" page.
 ----
 include::complete/src/main/resources/templates/form.html[]
 ----
-  
-The page contains a simple form with each field in a separate slot of a table. The form is geared to post towards `/`. It is marked as being backed up by the `person` object that you saw in the GET method in the web controller. This is known as a **bean-backed form**. There are two fields in the `Person` bean, and you can see them tagged `th:field="*{name}"` and `th:field="*{age}"`. Next to each field is a secondary element used to show any validation errors.
+
+The page contains a simple form with each field in a separate slot of a table. The form is geared to post towards `/`. It is marked as being backed up by the `person` object that you saw in the GET method in the web controller. This is known as a **bean-backed form**. There are two fields in the `PersonForm` bean, and you can see them tagged `th:field="*{name}"` and `th:field="*{age}"`. Next to each field is a secondary element used to show any validation errors.
 
 Finally, you have a button to submit. In general, if the user enters a name or age that violates the `@Valid` constraints, it will bounce back to this page with the error message on display. If a valid name and age is entered, the user is routed to the next web page.
 
@@ -88,7 +88,7 @@ Finally, you have a button to submit. In general, if the user enters a name or a
 ----
 include::complete/src/main/resources/templates/results.html[]
 ----
-    
+
 NOTE: In this simple example, these web pages don't have any sophisticated CSS or JavaScript. But for any production web site, it's valuable to learn how to style your web pages.
 
 
@@ -100,7 +100,7 @@ For this application, you are using the template language of http://www.thymelea
 ----
 include::complete/src/main/java/hello/Application.java[]
 ----
-    
+
 To activate Spring MVC, you would normally add `@EnableWebMvc` to the `Application` class. But Spring Boot's `@SpringBootApplication` already adds this annotation when it detects **spring-webmvc** on your classpath. This same annotation allows it to find the annotated `@Controller` class and its methods.
 
 The Thymeleaf configuration is also taken care of by `@SpringBootApplication`: by default templates are located in the classpath under `templates/` and are resolved as views by stripping the '.html' suffix off the file name. Thymeleaf settings can be changed and overridden in a variety of ways depending on what you need to achieve, but the details are not relevant to this guide.
@@ -122,7 +122,7 @@ image::images/valid-02.png[]
 
 image::images/valid-03.png[]
 
-Here you can see that because it violated the constraints in the `Person` class, you get bounced back to the "main" page. If you click on Submit with nothing in the entry box, you get a different error.
+Here you can see that because it violated the constraints in the `PersonForm` class, you get bounced back to the "main" page. If you click on Submit with nothing in the entry box, you get a different error.
 
 image::images/valid-04.png[]
 
