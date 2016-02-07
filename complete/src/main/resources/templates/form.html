@@ -10,7 +10,7 @@
                 <tr>
                     <td>Age:</td>
                     <td><input type="text" th:field="*{age}" /></td>
-                    <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Name Error</td>
+                    <td th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age Error</td>
                 </tr>
                 <tr>
                     <td><button type="submit">Submit</button></td>
