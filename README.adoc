@@ -93,7 +93,7 @@ NOTE: In this simple example, these web pages don't have any sophisticated CSS o
 
 
 == Create an Application class
-For this application, you are using the template language of http://www.thymeleaf.org/doc/html/Thymeleaf-Spring3.html[Thymeleaf]. This application needs more than raw HTML.
+For this application, you are using the template language of http://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html[Thymeleaf]. This application needs more than raw HTML.
 
 `src/main/java/hello/Application.java`
 [source,java]
