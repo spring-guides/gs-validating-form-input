@@ -62,7 +62,7 @@ The `showForm` method returns the `form` template. It includes a `PersonForm` in
 
 The `checkPersonFormInfo` method accepts two arguments:
 
-- A `person` object marked up with `@Valid` to gather the attributes filled out in the form you're about to build.
+- A `personForm` object marked up with `@Valid` to gather the attributes filled out in the form you're about to build.
 - A `bindingResult` object so you can test for and retrieve validation errors.
 
 You can retrieve all the attributes from the form bound to the `PersonForm` object. In the code, you test for errors, and if so, send the user back to the original `form` template. In that situation, all the error attributes are displayed.
