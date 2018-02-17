@@ -79,7 +79,7 @@ Now you build the "main" page.
 include::complete/src/main/resources/templates/form.html[]
 ----
 
-The page contains a simple form with each field in a separate slot of a table. The form is geared to post towards `/`. It is marked as being backed up by the `person` object that you saw in the GET method in the web controller. This is known as a **bean-backed form**. There are two fields in the `PersonForm` bean, and you can see them tagged `th:field="*{name}"` and `th:field="*{age}"`. Next to each field is a secondary element used to show any validation errors.
+The page contains a simple form with each field in a separate slot of a table. The form is geared to post towards `/`. It is marked as being backed up by the `personForm` object that you saw in the GET method in the web controller. This is known as a **bean-backed form**. There are two fields in the `PersonForm` bean, and you can see them tagged `th:field="*{name}"` and `th:field="*{age}"`. Next to each field is a secondary element used to show any validation errors.
 
 Finally, you have a button to submit. In general, if the user enters a name or age that violates the `@Valid` constraints, it will bounce back to this page with the error message on display. If a valid name and age is entered, the user is routed to the next web page.
 
