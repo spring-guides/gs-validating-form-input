@@ -31,6 +31,7 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 @SpringBootTest
 @AutoConfigureMockMvc
 public class ApplicationMockMvcTests {
+    
     @Autowired
     private MockMvc mockMvc;
 
