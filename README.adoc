@@ -2,134 +2,212 @@
 :icons: font
 :source-highlighter: prettify
 :project_id: gs-validating-form-input
-This guide walks you through the process of configuring a web application form to support validation.
 
-== What you'll build
+This guide walks you through the process of configuring a web application form to support
+validation.
 
-You'll build a simple Spring MVC application that take user input and checks the input using standard validation annotations. You'll also see how to display the error message on the screen so the user can re-enter a valid input.
+== What You Will Build
 
+You will build a simple Spring MVC application that takes user input and checks the input
+by using standard validation annotations. You will also see how to display the error
+message on the screen so that the user can re-enter input to make it be valid.
 
-== What you'll need
+== What You Need
 
 :java_version: 1.8
 include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/prereq_editor_jdk_buildtools.adoc[]
 
-
 include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/how_to_complete_this_guide.adoc[]
 
+[[scratch]]
+== Starting with Spring Initializr
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/hide-show-gradle.adoc[]
+For all Spring applications, you should start with the https://start.spring.io[Spring
+Initializr]. The Initializr offers a fast way to pull in all the dependencies you need for
+an application and does a lot of the setup for you. This example needs the Spring Web and
+Thymeleaf dependencies. The following image shows the Initializr set up for this sample
+project:
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/hide-show-maven.adoc[]
+image::images/initializr.png[]
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/hide-show-sts.adoc[]
+NOTE: The preceding image shows the Initializr with Maven chosen as the build tool. You
+can also use Gradle. It also shows values of `com.example` and `validating-form-input` as
+the Group and Artifact, respectively. You will use those values throughout the rest of
+this sample.
+
+The following listing shows the `pom.xml` file that is created when you choose Maven:
+
+====
+[source,xml]
+----
+include::initial/pom.xml[]
+----
+====
+
+The following listing shows the `build.gradle` file that is created when you choose Gradle:
+
+====
+[source,text]
+----
+include::initial/build.gradle[]
+----
+====
 
 [[initial]]
-== Create a PersonForm object
-The application involves validating a user's name and age, so first you need to create a class to back the form to create a person.
+== Create a `PersonForm` Object
 
-`src/main/java/hello/PersonForm.java`
-[source,java,tabsize=2]
+The application involves validating a user's name and age, so you first need to create a
+class that backs the form used to create a person. The following listing (from
+`src/main/java/com/example/validatingforminput/PersonForm.java`) shows how to do so:
+
+====
+[source,java]
 ----
-include::complete/src/main/java/hello/PersonForm.java[]
+include::complete/src/main/java/com/example/validatingforminput/PersonForm.java[]
 ----
+====
 
-The `PersonForm` class has two attributes: `name` and `age`. It is flagged with several standard validation annotations:
+The `PersonForm` class has two attributes: `name` and `age`. It is flagged with a few
+standard validation annotations:
 
-- `@Size(min=2, max=30)` will only allow names between 2 and 30 characters long
-- `@NotNull` won't allow a null value, which is what Spring MVC generates if the entry is empty
-- `@Min(18)` won't allow if the age is less than 18
+- `@Size(min=2, max=30)`: Allows names between 2 and 30 characters long.
+- `@NotNull`: Does not allow a null value, which is what Spring MVC generates if the entry
+is empty.
+- `@Min(18)`: Does not allow the age to be less than 18.
 
-In addition to that, you can also see getters/setters for `name` and `age` as well as a convenient `toString()` method.
+In addition to that, you can also see getters and setters for `name` and `age` and a
+convenient `toString()` method.
 
+== Create a Web Controller
 
-== Create a web controller
-Now that you have defined a form backing object, it's time to create a simple web controller.
+Now that you have defined a form-backing object, it is time to create a simple web
+controller. The following listing (from
+`src/main/java/com/example/validatingforminput/WebController.java`) shows how to do so:
 
-`src/main/java/hello/WebController.java`
-[source,java,tabsize=2]
+====
+[source,java]
 ----
-include::complete/src/main/java/hello/WebController.java[]
+include::complete/src/main/java/com/example/validatingforminput/WebController.java[]
 ----
+====
 
-This controller has a GET and a POST method, both mapped to `/`.
+This controller has a GET method and a POST method. Both methods are mapped to `/`.
 
-The `showForm` method returns the `form` template. It includes a `PersonForm` in its method signature so the template can associate form attributes with a `PersonForm`.
+The `showForm` method returns the `form` template. It includes a `PersonForm` in its
+method signature so that the template can associate form attributes with a `PersonForm`.
 
 The `checkPersonFormInfo` method accepts two arguments:
 
-- A `personForm` object marked up with `@Valid` to gather the attributes filled out in the form you're about to build.
-- A `bindingResult` object so you can test for and retrieve validation errors.
+- A `personForm` object marked with `@Valid` to gather the attributes filled out in the
+form.
+- A `bindingResult` object so that you can test for and retrieve validation errors.
 
-You can retrieve all the attributes from the form bound to the `PersonForm` object. In the code, you test for errors, and if so, send the user back to the original `form` template. In that situation, all the error attributes are displayed.
+You can retrieve all the attributes from the form, which is bound to the `PersonForm`
+object. In the code, you test for errors. If you encounter an error, you can send the user
+back to the original `form` template. In that situation, all the error attributes are
+displayed.
 
-If all of the person's attribute are valid, then it redirects the browser to the final `results` template.
+If all of the person's attribute are valid, it redirects the browser to the final
+`results` template.
 
+== Build an HTML Front End
 
-== Build an HTML front end
-Now you build the "main" page.
+Now build the "`main`" page, as the following listing (from
+`src/main/resources/templates/form.html`) shows:
 
-`src/main/resources/templates/form.html`
+====
 [source,html]
 ----
 include::complete/src/main/resources/templates/form.html[]
 ----
+====
 
-The page contains a simple form with each field in a separate slot of a table. The form is geared to post towards `/`. It is marked as being backed up by the `personForm` object that you saw in the GET method in the web controller. This is known as a **bean-backed form**. There are two fields in the `PersonForm` bean, and you can see them tagged `th:field="*{name}"` and `th:field="*{age}"`. Next to each field is a secondary element used to show any validation errors.
+The page contains a simple form, with each of its field in a separate cell in a table. The
+form is geared to post to `/`. It is marked as being backed up by the `personForm`
+object that you saw in the `GET` method in the web controller. This is known as a
+"`bean-backed form`". There are two fields in the `PersonForm` bean, and you can see that
+they are tagged with `th:field="*{name}"` and `th:field="*{age}"`. Next to each field is a
+secondary element that is used to show any validation errors.
 
-Finally, you have a button to submit. In general, if the user enters a name or age that violates the `@Valid` constraints, it will bounce back to this page with the error message on display. If a valid name and age is entered, the user is routed to the next web page.
+Finally, you have a button that submits the form. In general, if the user enters a name or
+age that violates the `@Valid` constraints, it bounces back to this page with the error
+message displayed. If a valid name and age is entered, the user is routed to the next web
+page.
 
-`src/main/resources/templates/results.html`
+The following example (from `src/main/resources/templates/results.html`) shows the results
+page:
+
+====
 [source,html]
 ----
 include::complete/src/main/resources/templates/results.html[]
 ----
+====
 
-NOTE: In this simple example, these web pages don't have any sophisticated CSS or JavaScript. But for any production web site, it's valuable to learn how to style your web pages.
+NOTE: In this simple example, these web pages do not have any sophisticated CSS or
+JavaScript.
 
+== Run the Application
 
-== Create an Application class
-For this application, you are using the template language of https://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html[Thymeleaf]. This application needs more than raw HTML.
+For this application, you are using the template language of
+https://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html[Thymeleaf]. This
+application needs more than raw HTML. The Spring Initializr created an application class
+for you. The following listing (from
+`src/main/java/com/example/validatingforminput/ValidatingFormInputApplication.java`) shows
+that class:
 
-`src/main/java/hello/Application.java`
-[source,java,tabsize=2]
+====
+[source,java]
 ----
-include::complete/src/main/java/hello/Application.java[]
+include::complete/src/main/java/com/example/validatingforminput/ValidatingFormInputApplication.java[]
 ----
+====
 
-To activate Spring MVC, you would normally add `@EnableWebMvc` to the `Application` class. But Spring Boot's `@SpringBootApplication` already adds this annotation when it detects **spring-webmvc** on your classpath. This same annotation allows it to find the annotated `@Controller` class and its methods.
+To activate Spring MVC, you would normally add `@EnableWebMvc` to the `Application` class.
+But Spring Boot's `@SpringBootApplication` already adds this annotation when it detects
+`spring-webmvc` on your classpath. This same annotation lets it find the annotated
+`@Controller` class and its methods.
 
-The Thymeleaf configuration is also taken care of by `@SpringBootApplication`: by default templates are located in the classpath under `templates/` and are resolved as views by stripping the '.html' suffix off the file name. Thymeleaf settings can be changed and overridden in a variety of ways depending on what you need to achieve, but the details are not relevant to this guide.
+The Thymeleaf configuration is also taken care of by `@SpringBootApplication`. By default,
+templates are located in the classpath under `templates/` and are resolved as views by
+stripping the '.html' suffix off the file name. (Thymeleaf settings can be changed and
+overridden in a variety of ways, depending on what you need to achieve, but the details
+are not relevant to this guide.)
 
 include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/build_an_executable_jar_subhead.adoc[]
 
 include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/build_an_executable_jar_with_both.adoc[]
 
-
 The application should be up and running within a few seconds.
 
-If you visit http://localhost:8080/, you should see something like this:
+If you visit `http://localhost:8080/`, you should see something like the following image:
 
 image::images/valid-01.png[]
 
-What happens if you enter **A** for the name and **15** for your age and click on **Submit**?
+The following pair of images show what happens if you enter `A` for the name and `15` for
+your age and click on *Submit*:
 
 image::images/valid-02.png[]
 
 image::images/valid-03.png[]
 
-Here you can see that because it violated the constraints in the `PersonForm` class, you get bounced back to the "main" page. If you click on Submit with nothing in the entry box, you get a different error.
+The preceding images show that, because the values violated the constraints in the
+`PersonForm` class, you get bounced back to the "`main`" page. Note that, if you click on
+*Submit* with nothing in the entry box, you get a different error, as the following image
+shows:
 
 image::images/valid-04.png[]
 
-If you enter a valid name and age, you end up on the `results` page!
+If you enter a valid name and age, you end up on the `results` page, as the following
+image shows:
 
 image::images/valid-05.png[]
 
-
 == Summary
 
-Congratulations! You have coded a simple web application with validation built into a domain object. This way you can ensure the data meets certain criteria and that the user inputs it correctly.
+Congratulations! You have coded a simple web application with validation built into a
+domain object. This way, you can ensure that the data meets certain criteria and that the
+user correctly inputs the data.
 
 == See Also
 

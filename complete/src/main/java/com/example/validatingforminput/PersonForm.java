@@ -1,4 +1,4 @@
-package hello;
+package com.example.validatingforminput;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
