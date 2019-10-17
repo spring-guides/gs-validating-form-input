@@ -1,13 +1,13 @@
-package hello;
+package com.example.validatingforminput;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class Application {
+public class ValidatingFormInputApplication {
 
 	public static void main(String[] args) throws Exception {
-		SpringApplication.run(Application.class, args);
+		SpringApplication.run(ValidatingFormInputApplication.class, args);
 	}
-	
+
 }

@@ -1,4 +1,4 @@
-package hello;
+package com.example.validatingforminput;
 
 import javax.validation.Valid;
 
