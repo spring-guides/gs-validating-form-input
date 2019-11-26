@@ -29,7 +29,7 @@ include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/
 The application involves validating a user's name and age, so first you need to create a class to back the form to create a person.
 
 `src/main/java/hello/PersonForm.java`
-[source,java]
+[source,java,tabsize=2]
 ----
 include::complete/src/main/java/hello/PersonForm.java[]
 ----
@@ -47,7 +47,7 @@ In addition to that, you can also see getters/setters for `name` and `age` as we
 Now that you have defined a form backing object, it's time to create a simple web controller.
 
 `src/main/java/hello/WebController.java`
-[source,java]
+[source,java,tabsize=2]
 ----
 include::complete/src/main/java/hello/WebController.java[]
 ----
@@ -92,7 +92,7 @@ NOTE: In this simple example, these web pages don't have any sophisticated CSS o
 For this application, you are using the template language of https://www.thymeleaf.org/doc/tutorials/3.0/thymeleafspring.html[Thymeleaf]. This application needs more than raw HTML.
 
 `src/main/java/hello/Application.java`
-[source,java]
+[source,java,tabsize=2]
 ----
 include::complete/src/main/java/hello/Application.java[]
 ----

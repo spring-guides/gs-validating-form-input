@@ -5,7 +5,7 @@
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
- *      https://www.apache.org/licenses/LICENSE-2.0
+ *	  https://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing, software
  * distributed under the License is distributed on an "AS IS" BASIS,
@@ -31,55 +31,55 @@ import org.springframework.test.web.servlet.request.MockHttpServletRequestBuilde
 @SpringBootTest
 @AutoConfigureMockMvc
 public class ApplicationMockMvcTests {
-    
-    @Autowired
-    private MockMvc mockMvc;
+	
+	@Autowired
+	private MockMvc mockMvc;
 
-    @Test
-    public void checkPersonInfoWhenNameMissingNameThenFailure() throws Exception {
-        MockHttpServletRequestBuilder createPerson = post("/")
-                .param("age", "20");
+	@Test
+	public void checkPersonInfoWhenNameMissingNameThenFailure() throws Exception {
+		MockHttpServletRequestBuilder createPerson = post("/")
+				.param("age", "20");
 
-        mockMvc.perform(createPerson)
-            .andExpect(model().hasErrors());
-    }
+		mockMvc.perform(createPerson)
+			.andExpect(model().hasErrors());
+	}
 
-    @Test
-    public void checkPersonInfoWhenNameTooShortThenFailure() throws Exception {
-        MockHttpServletRequestBuilder createPerson = post("/")
-                .param("name", "R")
-                .param("age", "20");
+	@Test
+	public void checkPersonInfoWhenNameTooShortThenFailure() throws Exception {
+		MockHttpServletRequestBuilder createPerson = post("/")
+				.param("name", "R")
+				.param("age", "20");
 
-        mockMvc.perform(createPerson)
-            .andExpect(model().hasErrors());
-    }
+		mockMvc.perform(createPerson)
+			.andExpect(model().hasErrors());
+	}
 
-    @Test
-    public void checkPersonInfoWhenAgeMissingThenFailure() throws Exception {
-        MockHttpServletRequestBuilder createPerson = post("/")
-                .param("name", "Rob");
+	@Test
+	public void checkPersonInfoWhenAgeMissingThenFailure() throws Exception {
+		MockHttpServletRequestBuilder createPerson = post("/")
+				.param("name", "Rob");
 
-        mockMvc.perform(createPerson)
-            .andExpect(model().hasErrors());
-    }
+		mockMvc.perform(createPerson)
+			.andExpect(model().hasErrors());
+	}
 
-    @Test
-    public void checkPersonInfoWhenAgeTooYoungThenFailure() throws Exception {
-        MockHttpServletRequestBuilder createPerson = post("/")
-                .param("age", "1")
-                .param("name", "Rob");
+	@Test
+	public void checkPersonInfoWhenAgeTooYoungThenFailure() throws Exception {
+		MockHttpServletRequestBuilder createPerson = post("/")
+				.param("age", "1")
+				.param("name", "Rob");
 
-        mockMvc.perform(createPerson)
-            .andExpect(model().hasErrors());
-    }
+		mockMvc.perform(createPerson)
+			.andExpect(model().hasErrors());
+	}
 
-    @Test
-    public void checkPersonInfoWhenValidRequestThenSuccess() throws Exception {
-        MockHttpServletRequestBuilder createPerson = post("/")
-                .param("name", "Rob")
-                .param("age", "20");
+	@Test
+	public void checkPersonInfoWhenValidRequestThenSuccess() throws Exception {
+		MockHttpServletRequestBuilder createPerson = post("/")
+				.param("name", "Rob")
+				.param("age", "20");
 
-        mockMvc.perform(createPerson)
-            .andExpect(model().hasNoErrors());
-    }
+		mockMvc.perform(createPerson)
+			.andExpect(model().hasNoErrors());
+	}
 }
