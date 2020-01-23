@@ -118,7 +118,7 @@ The page contains a simple form, with each of its field in a separate cell in a 
 form is geared to post to `/`. It is marked as being backed up by the `personForm`
 object that you saw in the `GET` method in the web controller. This is known as a
 "`bean-backed form`". There are two fields in the `PersonForm` bean, and you can see that
-they are tagged with `th:field="*{name}"` and `th:field="*{age}"`. Next to each field is a
+they are tagged with `th:field="pass:[*]{name}"` and `th:field="pass:[*]{age}"`. Next to each field is a
 secondary element that is used to show any validation errors.
 
 Finally, you have a button that submits the form. In general, if the user enters a name or
