@@ -184,7 +184,7 @@ If you visit `http://localhost:8080/`, you should see something like the followi
 
 image::images/valid-01.png[]
 
-The following pair of images show what happens if you enter `A` for the name and `15` for
+The following pair of images show what happens if you enter `N` for the name and `15` for
 your age and click on *Submit*:
 
 image::images/valid-02.png[]
