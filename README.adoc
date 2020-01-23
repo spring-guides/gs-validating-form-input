@@ -96,7 +96,7 @@ This controller has a GET method and a POST method. Both methods are mapped to `
 The `showForm` method returns the `form` template. It includes a `PersonForm` in its
 method signature so that the template can associate form attributes with a `PersonForm`.
 
-The `checkPersonFormInfo` method accepts two arguments:
+The `checkPersonInfo` method accepts two arguments:
 
 - A `personForm` object marked with `@Valid` to gather the attributes filled out in the
 form.
