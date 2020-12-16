@@ -174,26 +174,26 @@ The application should be up and running within a few seconds.
 
 If you visit `http://localhost:8080/`, you should see something like the following image:
 
-image::images/valid-01.png[]
+image::https://raw.githubusercontent.com/spring-guides/gs-validating-form-input/master/images/valid-01.png[]
 
 The following pair of images show what happens if you enter `N` for the name and `15` for
 your age and click on *Submit*:
 
-image::images/valid-02.png[]
+image::https://raw.githubusercontent.com/spring-guides/gs-validating-form-input/master/images/valid-02.png[]
 
-image::images/valid-03.png[]
+image::https://raw.githubusercontent.com/spring-guides/gs-validating-form-input/master/images/valid-03.png[]
 
 The preceding images show that, because the values violated the constraints in the
 `PersonForm` class, you get bounced back to the "`main`" page. Note that, if you click on
 *Submit* with nothing in the entry box, you get a different error, as the following image
 shows:
 
-image::images/valid-04.png[]
+image::https://raw.githubusercontent.com/spring-guides/gs-validating-form-input/master/images/valid-04.png[]
 
 If you enter a valid name and age, you end up on the `results` page, as the following
 image shows:
 
-image::images/valid-05.png[]
+image::https://raw.githubusercontent.com/spring-guides/gs-validating-form-input/master/images/valid-05.png[]
 
 == Summary
 
