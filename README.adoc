@@ -24,8 +24,8 @@ include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/
 
 For all Spring applications, you should start with the https://start.spring.io[Spring
 Initializr]. The Initializr offers a fast way to pull in all the dependencies you need for
-an application and does a lot of the setup for you. This example needs the Spring Web and
-Thymeleaf dependencies.
+an application and does a lot of the setup for you. This example needs the Spring Web,
+Thymeleaf and Validation dependencies.
 
 The following listing shows the `pom.xml` file that is created when you choose Maven:
 
