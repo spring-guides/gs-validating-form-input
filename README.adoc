@@ -15,9 +15,9 @@ message on the screen so that the user can re-enter input to make it be valid.
 == What You Need
 
 :java_version: 1.8
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/prereq_editor_jdk_buildtools.adoc[]
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/main/prereq_editor_jdk_buildtools.adoc[]
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/how_to_complete_this_guide.adoc[]
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/main/how_to_complete_this_guide.adoc[]
 
 [[scratch]]
 == Starting with Spring Initializr
@@ -178,34 +178,34 @@ stripping the '.html' suffix off the file name. (Thymeleaf settings can be chang
 overridden in a variety of ways, depending on what you need to achieve, but the details
 are not relevant to this guide.)
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/build_an_executable_jar_subhead.adoc[]
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/main/build_an_executable_jar_subhead.adoc[]
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/build_an_executable_jar_with_both.adoc[]
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/main/build_an_executable_jar_with_both.adoc[]
 
 The application should be up and running within a few seconds.
 
 If you visit `http://localhost:8080/`, you should see something like the following image:
 
-image::https://raw.githubusercontent.com/spring-guides/gs-validating-form-input/master/images/valid-01.png[]
+image::https://raw.githubusercontent.com/spring-guides/gs-validating-form-input/main/images/valid-01.png[]
 
 The following pair of images show what happens if you enter `N` for the name and `15` for
 your age and click on *Submit*:
 
-image::https://raw.githubusercontent.com/spring-guides/gs-validating-form-input/master/images/valid-02.png[]
+image::https://raw.githubusercontent.com/spring-guides/gs-validating-form-input/main/images/valid-02.png[]
 
-image::https://raw.githubusercontent.com/spring-guides/gs-validating-form-input/master/images/valid-03.png[]
+image::https://raw.githubusercontent.com/spring-guides/gs-validating-form-input/main/images/valid-03.png[]
 
 The preceding images show that, because the values violated the constraints in the
 `PersonForm` class, you get bounced back to the "`main`" page. Note that, if you click on
 *Submit* with nothing in the entry box, you get a different error, as the following image
 shows:
 
-image::https://raw.githubusercontent.com/spring-guides/gs-validating-form-input/master/images/valid-04.png[]
+image::https://raw.githubusercontent.com/spring-guides/gs-validating-form-input/main/images/valid-04.png[]
 
 If you enter a valid name and age, you end up on the `results` page, as the following
 image shows:
 
-image::https://raw.githubusercontent.com/spring-guides/gs-validating-form-input/master/images/valid-05.png[]
+image::https://raw.githubusercontent.com/spring-guides/gs-validating-form-input/main/images/valid-05.png[]
 
 == Summary
 
@@ -222,4 +222,4 @@ The following guides may also be helpful:
 * https://spring.io/guides/gs/securing-web/[Securing a Web Application]
 * https://spring.io/guides/gs/spring-boot/[Building an Application with Spring Boot]
 
-include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/master/footer.adoc[]
+include::https://raw.githubusercontent.com/spring-guides/getting-started-macros/main/footer.adoc[]
